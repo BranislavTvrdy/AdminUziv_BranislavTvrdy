@@ -1,0 +1,17 @@
+﻿<Window x:Class="KangoAppWpf.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KangoAppWpf"
+        mc:Ignorable="d"
+        Title="Prihlásenie" Height="250" Width="300" Icon="Logo_Kango.ico">
+    <Grid>
+        <Label Content="Meno: " HorizontalAlignment="Left" Margin="10,25,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtLoginMeno" Height="22" Margin="10,55,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Label Content="Heslo: " HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top"/>
+        <PasswordBox x:Name="txtLoginHeslo" Height="22" Margin="10,110,10,0" VerticalAlignment="Top" PasswordChar="*"/>
+        <Button Content="Prihlásiť" Margin="10,155,10,0" VerticalAlignment="Top" Height="22" Click="Button_Click"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,41 @@
+﻿<Window x:Class="KangoAppWpf.Search"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KangoAppWpf"
+        mc:Ignorable="d"
+        Title="Vyhľadávanie" Height="290" Width="400
+        " Icon="Logo_Kango.ico">
+    <Grid>
+        <TabControl x:Name="tc_Vyhladavanie" Height="200" Margin="10,10,10,0" VerticalAlignment="Top">
+            <TabItem Header="Užívatelia">
+                <Grid Background="#FFE5E5E5">
+                    <Label Content="Meno: " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Typ: " HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Email: " HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Telefón: " HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Aktivny: " HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtS_MenoUzivatel" HorizontalAlignment="Left" Height="23" Margin="96,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260"/>
+                    <TextBox x:Name="txtS_EmailUzivatel" HorizontalAlignment="Left" Height="23" Margin="96,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260"/>
+                    <TextBox x:Name="txtS_TelefonUzivatel" HorizontalAlignment="Left" Height="23" Margin="96,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260"/>
+                    <ComboBox x:Name="cbS_TypUzivatel" HorizontalAlignment="Left" Margin="96,45,0,0" VerticalAlignment="Top" Width="260"/>
+                    <CheckBox x:Name="cbS_AktivnyUzivatel" Content="(zaškrtnite pre aktívnych úžívateľov)" HorizontalAlignment="Left" Margin="96,140,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.524,0.591"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Skupiny">
+                <Grid Background="#FFE5E5E5">
+                    <Label Content="Meno: " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Typ: " HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Vedúci: " HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtS_MenoSkupina" HorizontalAlignment="Left" Height="23" Margin="96,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260"/>
+                    <TextBox x:Name="txtS_VeduciSkupina" HorizontalAlignment="Left" Height="23" Margin="96,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260"/>
+                    <ComboBox x:Name="cbS_TypSkupina" HorizontalAlignment="Left" Margin="96,45,0,0" VerticalAlignment="Top" Width="260"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Button Content="Vyhľadaj" Margin="10,219,10,0" Click="Button_Click" Height="20" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

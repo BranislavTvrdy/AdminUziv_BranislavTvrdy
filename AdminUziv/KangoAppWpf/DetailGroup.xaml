@@ -1,0 +1,52 @@
+﻿<Window x:Class="KangoAppWpf.DetailGroup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KangoAppWpf"
+        mc:Ignorable="d"
+        Title="Detaily skupiny" Height="450" Width="900" Icon="Logo_Kango.ico">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400*"></ColumnDefinition>
+            <ColumnDefinition Width="500*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Content="Vedúci skupiny: " HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top"/>
+        <Label Content="Meno skupiny: " HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
+        <Label Content="Typ skupiny: " HorizontalAlignment="Left" Margin="10,111,0,0" VerticalAlignment="Top"/>
+        <Label Content="Poznámka: " HorizontalAlignment="Left" Margin="10,149,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtDG_Veduci" HorizontalAlignment="Left" Height="23" Margin="110,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241"/>
+        <TextBox x:Name="txtDG_Meno" HorizontalAlignment="Left" Height="23" Margin="110,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241"/>
+        <RichTextBox x:Name="txtDG_Poznamka" HorizontalAlignment="Left" Margin="110,155,0,0" Width="241" Height="130" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cbDG_Typ" HorizontalAlignment="Left" Margin="110,115,0,0" VerticalAlignment="Top" Width="241"/>
+
+        <Button Name="ButtonPodskupiny" Content="PODSKUPINY" Margin="366,35,0,0" VerticalAlignment="Top" Height="20" HorizontalAlignment="Left" Width="160" Click="Button_Click_Podskupiny" Grid.ColumnSpan="2">
+            <Button.LayoutTransform>
+                <RotateTransform Angle="90"/>
+            </Button.LayoutTransform>
+        </Button>
+
+        <Button Name="ButtonClenovia" Content="ČLENOVIA" Margin="366,210,0,0" VerticalAlignment="Top" Height="20" HorizontalAlignment="Left" Width="160" Click="Button_Click_Clenovia" Grid.ColumnSpan="2">
+            <Button.LayoutTransform>
+                <RotateTransform Angle="90"/>
+            </Button.LayoutTransform>
+        </Button>
+
+        <Button x:Name="btn_EditujSkupinu" Content="Etituj údaje" Margin="110,335,0,0" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" Width="241" Click="BtnEditujSkupinuClick"/>
+        <DataGrid Name="DataGridPod" Margin="10,10,10,0" Grid.Row="0" Grid.Column="1"  AutoGenerateColumns="False" 
+                  RowHeight="20" ColumnWidth="Auto" GridLinesVisibility="None" HeadersVisibility="Column" Background="White" 
+                  IsReadOnly="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" SelectionMode="Single" Height="329" VerticalAlignment="Top">
+            <DataGrid.Columns>
+                <!--<DataGridTextColumn Header="Meno" Binding="{Binding Path=Meno}"/>
+                <DataGridTextColumn Header="Typ" Binding="{Binding Path=Typ}"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Path=Email}"/>
+                <DataGridTextColumn Header="Telefon" Binding="{Binding Path=Telefon}"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Path=Status}"/>-->
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label x:Name="l_PridajPod" Content="Meno novej podskupiny:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,352,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cbDG_NovPod" Grid.Column="1" HorizontalAlignment="Left" Margin="153,353,0,0" VerticalAlignment="Top" Width="253"/>
+        <Button x:Name="btn_PridajPod" Content="Pridaj" Grid.Column="1" HorizontalAlignment="Left" Margin="411,355,0,0" VerticalAlignment="Top" Width="75" Click="BtnPridajPodClick"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,101 @@
+﻿<Window x:Class="KangoAppWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KangoAppWpf"
+        mc:Ignorable="d"
+        Closing="MainWindow_OnClosing"
+        Title="Administrácia Kango" Height="450" Width="1000" Icon="Logo_Kango.ico">
+    <Grid>
+        <Grid.RowDefinitions>
+            <!--<RowDefinition Height="36*"/>-->
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="425*"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel VerticalAlignment="Top" Height="25" Grid.RowSpan="2">
+            <Menu DockPanel.Dock="Top" BorderThickness="2">
+                <MenuItem Header="_Vstup">
+                    <MenuItem Name="MenuLoginIn" Header="_Prihlásiť" Click="MenuLoginIn_Click" />
+                    <MenuItem Name="MenuLoginOut" Header="_Odhlásiť" Click="MenuLoginOut_Click" />
+                    <Separator/>
+                    <MenuItem Name="MenuRenewPass" Header="Obnova _hesla" Click="MenuRenewPass_OnClick" />
+                    <!--<Separator Height="1" Margin="0" Width="Auto"/>-->
+                    <Separator />
+                    <MenuItem Name="MenuItemExit" Header="_Exit" Click="MenuItemExit_OnClick" />
+                </MenuItem>
+                <MenuItem Header="Vyhľadávanie" Click="MenuItem_Click_Vyhladavanie"/>
+                <MenuItem x:Name="MenuNewUser" Header="Vytvor nového užívateľa" Click="MenuItem_Click_NovyPouzivatel"/>
+                <MenuItem x:Name="MenuNewGroup" Header="Vytvor novú skupinu" Click="MenuItem_Click_NovaSkupina"/>
+                <MenuItem x:Name="MenuDisplayData" Header="Výpis obsahu" Click="MenuItem_Click_Vypis"/>
+                <MenuItem x:Name="MenuDSaveDbContent" Header="Uložiť do databázy" Click="MenuItem_Click_Save"/>
+                <MenuItem Name="MenuItemExport" Header="Export do XML" Click="MenuItemExport_Click"/>
+                <MenuItem Name="MenuItemImport" Header="Import z XML">
+                    <MenuItem Name="MenuItemImportUsers" Header="Import užívateľov" Click="MenuItemImportUsers_OnClick" />
+                    <MenuItem Name="MenuItemImportGroups" Header="Import skupín" Click="MenuItemImportGroups_OnClick" />
+                </MenuItem>
+                <MenuItem Name="MenuItemConfig" Header="Konfigurácia" Click="MenuItemConfig_OnClick"/>
+            </Menu>
+            <!--<TextBox AcceptsReturn="True" />-->
+        </DockPanel>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <!--<RowDefinition Height="36*"/>-->
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="400*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="400*"></ColumnDefinition>
+                <ColumnDefinition Width="400*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0"  Grid.Column="0">Skupiny:</Label>
+            <DataGrid Name="DataGridGroups" Margin="10,10,10,10" Grid.Row="1" Grid.Column="0"  AutoGenerateColumns="False" 
+                      RowHeight="20" ColumnWidth="100*" GridLinesVisibility="None" HeadersVisibility="Column" Background="White" 
+                      IsReadOnly="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" SelectionMode="Single" 
+                      SelectedItem="DataGridGroups_OnSelected">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Meno" Binding="{Binding Path=Meno}"/>
+                    <DataGridTextColumn Header="Typ" Binding="{Binding Path=Typ}"/>
+                    <DataGridTextColumn Header="Veduci" Binding="{Binding Path=VeduciSkupiny}"/>
+                    <!--<DataGridTextColumn Header="Detail" Binding="{Binding Path=Detail}"/>-->
+                    <DataGridTemplateColumn Header="Detaily">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Name="btnDetailGroup" Content="Detail" Click="BtnDetailGroup_OnClick"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Label Grid.Row="0"  Grid.Column="1">Používatelia:</Label>
+            <DataGrid Name="DataGridUsers" Margin="10,10,10,10" Grid.Row="1" Grid.Column="1" AutoGenerateColumns="False" 
+                      RowHeight="20" ColumnWidth="100*" GridLinesVisibility="None" HeadersVisibility="Column" Background="White" 
+                      IsReadOnly="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" SelectionMode="Single" 
+                      SelectedItem="DataGridUsers_OnSelected">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Meno" Binding="{Binding Path=Meno}"/>
+                    <DataGridTextColumn Header="Typ" Binding="{Binding Path=Typ}" />
+                    <DataGridTextColumn Header="Email" Binding="{Binding Path=Email}"/>
+                    <DataGridTextColumn Header="Telefon" Binding="{Binding Path=Telefon}"/>
+                    <DataGridCheckBoxColumn Header="Aktívny" Binding="{Binding Path=Aktivny}"/>
+                    <!--<DataGridTextColumn Header="Detail" Binding="{Binding Path=Detail}"/>-->
+                    <DataGridTemplateColumn Header="Detaily">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Name="btnDetailUser" Content="Detail" Click="BtnDetailUser_OnClick"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </Grid>
+        
+
+
+    </Grid>
+</Window>
